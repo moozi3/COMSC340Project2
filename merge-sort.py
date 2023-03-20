@@ -33,12 +33,12 @@ def merge_sort(arr):
                 arr[k] = second_half[j]
                 j += 1
             k += 1
-        #If the first half's elements were not fully parsed and the rest of its elements to the sorted/emerged array
+        #If the first half's elements were not fully parsed add the rest of its elements to the sorted/emerged array
         while i < len(first_half):
             arr[k] = first_half[i]
             i += 1
             k += 1
-        #If the second half's elements were not fully parsed and the rest of its elements to the sorted/emerged array
+        #If the second half's elements were not fully parsed add the rest of its elements to the sorted/emerged array
         while j < len(second_half):
             arr[k] = second_half[j]
             j += 1
