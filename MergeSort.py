@@ -1,5 +1,7 @@
 # @author: Hirwa Ishimwe
 
+import time
+
 #Merge sort method
 def merge_sort(arr):
     #Get the length of the array
@@ -64,4 +66,10 @@ def parse_data_file(file):
 # Main Method
 if __name__ == '__main__':
     #Ask the user to enter the file with data, collect the data from the file and merge sort it
-    print(merge_sort(parse_data_file(input("Enter the data file: "))))
+    data = parse_data_file(input("Enter the data file: ") + ".txt")
+
+    start_time = time.time()
+    merge_sort(data)
+    end_time = time.time()
+
+    print(f"Merge Sorting {len(data)} elements took: {end_time - start_time:.10f} seconds")
