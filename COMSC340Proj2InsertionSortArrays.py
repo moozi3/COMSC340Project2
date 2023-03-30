@@ -23,6 +23,8 @@ uncomment where needed.
 #define global pieces so they can be called in different functions
 global arr, sortedarray
 
+import time
+
 """
 this method gathers the file name and parses the values in the file into an
 array
@@ -92,4 +94,10 @@ def insertion_sort_array(arr):
     
     
 arr = input_filename_to_array()
+
+
+
+start = time.time()
 insertion_sort_array(arr)
+end = time.time()
+print(end - start)
