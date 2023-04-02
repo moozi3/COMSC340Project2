@@ -68,9 +68,11 @@ def parse_data_file(file):
 
 # Main Method
 if __name__ == '__main__':
-    #Ask the user to enter the file with data, collect the data from the file and merge sort it
-    data = parse_data_file(input("Enter the data file: ") + ".txt")
 
-    result = merge_sort(data)
-
-    print(f"Merge Sorting {len(data)} elements took: {result[1]} Basic Operations")
+    data_files = ["inorder5k.txt","inorder10k.txt","inorder100k.txt","rev5k.txt","rev10k.txt",
+                  "rev100k.txt","random5k.txt","random10k.txt","random100k.txt"]
+    
+    for file in data_files:
+        data = parse_data_file("datafiles/" + file)
+        result = merge_sort(data)
+        print(f"Merge Sorting {file} took: {result[1]} Basic Operations")
