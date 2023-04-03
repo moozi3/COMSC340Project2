@@ -29,17 +29,32 @@ import time
 this method gathers the file name and parses the values in the file into an
 array
 """
-#Method for getting and parsing the input data into a list 
-def parse_data_file(file):
-    data_array = []
-    with open(file, "r") as open_file:
-        line = open_file.readline().strip()
-        data_array.append(int(line))
-        while line:
-            line = open_file.readline().strip()
-            if line != '':
-                data_array.append(int(line))
-    return data_array
+def input_filename_to_array():
+    #ask user for file name
+    infilename = input("Enter the name of the file you want to sort (include .txt)")
+    #the next line may need to be edited depending on your directory/computer
+    path = "C:/Users/moozi/Downloads/Fireshot/" + infilename
+    #the next line prints the directory path 
+    #print(path)
+    infile = open(path , "r")
+    
+    #write the file into an array
+    arr = []
+    
+    for line in infile:
+        data = line.strip("\n").split()
+        
+        for i, item in enumerate(data):
+            arr.append(data)
+    #print(arr)
+    """            
+    the next two lines can be uncommented to check that the file populated
+    into the array correctly, and that the number of elements in the array
+    match the number of values in the file
+    """    
+    #print(arr)
+    #print(len(arr))
+    return(arr)
     
 
 """
@@ -58,28 +73,31 @@ def insertion_sort_array(arr):
         sortedarr[]: the sorted array. This will be appended to after every 
         sorting loop
     """
-    sortedarray = arr
+    #print(len(arr))
+    sortedarray= arr
+    
     n = len(arr)
-    for i in range(1, n):
+    i = 2
+        
+    for i in range(n):
         x = arr[i]
         j = i - 1
-        while (j >= 0) and (sortedarray[j] > x):
+        
+        while (j > 0) and (sortedarray[j] > x):
+            
             sortedarray[j + 1] = sortedarray[j]
             j -= 1
+                       
         sortedarray[j + 1] = x
-    return sortedarray
         
- # Main        
-if __name__ == '__main__':
-
-    # list of the data files
-    data_files = ["inorder5k.txt","inorder10k.txt","inorder100k.txt","rev5k.txt","rev10k.txt",
-                    "rev100k.txt","random5k.txt","random10k.txt","random100k.txt"]
+    #print(sortedarray)
     
-    # loop through files and get their times
-    for file in data_files:
-        arr = parse_data_file("datafiles/" + file)
-        start_time = time.time()
-        insertion_sort_array(arr)
-        end_time = time.time()
-        print(f"Insertion Sorting {file} took: {end_time - start_time:.10f} seconds")
+    
+arr = input_filename_to_array()
+
+
+
+start = time.time()
+insertion_sort_array(arr)
+end = time.time()
+print(end - start)
