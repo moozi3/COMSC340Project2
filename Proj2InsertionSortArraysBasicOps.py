@@ -61,21 +61,21 @@ def insertion_sort_array(arr):
     
     n = len(arr)
     i = 2
-    basicops = 0    
+    basicops = 0   
     
     for i in range(n):
         x = arr[i]
         j = i - 1
-        
         basicops += 1
+        
         while (j > 0) and (sortedarray[j] > x):
             
             sortedarray[j + 1] = sortedarray[j]
             j -= 1
-
-            basicops += 3           
+            
+            basicops += 2
+                       
         sortedarray[j + 1] = x
-        basicops += 1
         
     print(sortedarray)
     print(basicops, " operations")
