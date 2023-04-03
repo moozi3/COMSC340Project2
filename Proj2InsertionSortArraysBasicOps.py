@@ -67,13 +67,13 @@ def insertion_sort_array(arr):
         x = arr[i]
         j = i - 1
         
-        basicops += 1
+        basicops += 3
         while (j > 0) and (sortedarray[j] > x):
             
             sortedarray[j + 1] = sortedarray[j]
             j -= 1
 
-            basicops += 3           
+            basicops += 1           
         sortedarray[j + 1] = x
         basicops += 1
         
