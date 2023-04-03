@@ -53,30 +53,28 @@ class LinkedList:
                 prev_node.next = curr_node
             curr_node = next_node
 
+def parse_data_file(file):
+    linked_list = LinkedList()
+    with open(file, "r") as open_file:
+        line = open_file.readline().strip()
+        linked_list.insert(int(line))
+        while line:
+            line = open_file.readline().strip()
+            if line != '':
+                linked_list.insert(int(line))
+    return linked_list
+
 
 if __name__ == '__main__':
-    # Creates a linked list object
-    linked_list = LinkedList()
 
-    # Insert some elements into the linked list
-    linked_list.insert(3)
-    linked_list.insert(1)
-    linked_list.insert(4)
-    linked_list.insert(2)
-    linked_list.insert(5)
-
-    # Print the original list
-    print("Original list:")
-    linked_list.print_list()
-
-    # Time the sorting process
-    start_time = time.time()
-    linked_list.insertion_sort()
-    end_time = time.time()
-
-    # Print the sorted list
-    print("Sorted list:")
-    linked_list.print_list()
-
-    # Print the time taken for sorting
-    print(f"Time taken: {end_time - start_time} seconds")
+    # list of the data files
+    data_files = ["inorder5k.txt","rev5k.txt","random5k.txt","inorder10k.txt","rev10k.txt","random10k.txt","inorder100k.txt",
+                    "rev100k.txt","random100k.txt"]
+    
+    # loop through files and get their times
+    for file in data_files:
+        linked_list = parse_data_file("datafiles/" + file)
+        start_time = time.time()
+        linked_list.insertion_sort()
+        end_time = time.time()
+        print(f"Insertion Sorting a linked list of {file} took: {end_time - start_time:.10f} seconds")
