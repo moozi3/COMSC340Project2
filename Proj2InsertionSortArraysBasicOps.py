@@ -76,17 +76,30 @@ def insertion_sort_array(arr):
             basicops += 2
                        
         sortedarray[j + 1] = x
-        
-    print(sortedarray)
-    print(basicops, " operations")
+        basicops += 1
+    return basicops
     
+def parse_data_file(file):
+    #a list to store the numbers from the file
+    data_array = []
+    with open(file, "r") as open_file:
+        # read each line and add it to the list as an integer
+        line = open_file.readline().strip()
+        data_array.append(int(line))
+        while line:
+            line = open_file.readline().strip()
+            if line != '':
+                data_array.append(int(line))
+        #return the lit
+    return data_array
+  
+if __name__ == '__main__':
+
+    data_files = ["inorder5k.txt","rev5k.txt","random5k.txt","inorder10k.txt",
+                  "rev10k.txt","random10k.txt","inorder100k.txt",
+                    "rev100k.txt","random100k.txt"]
     
-    
-arr = input_filename_to_array()
-
-
-
-start = time.time()
-insertion_sort_array(arr)
-end = time.time()
-#print(end - start)
+    for file in data_files:
+        data = parse_data_file("datafiles/" + file)
+        result = insertion_sort_array(data)
+        print(f"Insertion Sorting {file} took: {result} Basic Operations")
