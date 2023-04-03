@@ -14,7 +14,7 @@ def merge_sort(arr, basic_ops = None):
         #copy second half of the aray
         second_half = arr[middle:]
         #recursive split the arrays until they are only in 1 element in size
-        basic_ops[0] += 5
+        basic_ops[0] += 4
         merge_sort(first_half, basic_ops)
         merge_sort(second_half, basic_ops)
 
