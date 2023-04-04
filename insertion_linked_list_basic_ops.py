@@ -36,7 +36,7 @@ class LinkedList:
         self.head.next = None
         while curr_node is not None:
             next_node = curr_node.next
-            basic_ops += 2
+            basic_ops += 1
             if curr_node.data < self.head.data:
                 curr_node.next = self.head
                 self.head = curr_node
@@ -45,7 +45,7 @@ class LinkedList:
                 prev_node = self.head
                 while prev_node.next is not None and prev_node.next.data < curr_node.data:
                     prev_node = prev_node.next
-                    basic_ops += 3
+                    basic_ops += 2
                 curr_node.next = prev_node.next
                 prev_node.next = curr_node
                 basic_ops += 4
