@@ -73,7 +73,7 @@ def insertion_sort_array(arr):
             sortedarray[j + 1] = sortedarray[j]
             j -= 1
             
-            basicops += 3
+            basicops += 2
                        
         sortedarray[j + 1] = x
         basicops += 1
