@@ -1,5 +1,5 @@
 #@Author: Hirwa Ishimwe
-
+# Node and Linked List classes by @Louis Sader
 class Node:
     def __init__(self, data=None):
         self.data = data
@@ -52,7 +52,8 @@ class LinkedList:
             curr_node = next_node
             basic_ops += 1
         return basic_ops
-        
+    
+# Method to get the data from a file adn return a linked list        
 def parse_data_file(file):
     linked_list = LinkedList()
     with open(file, "r") as open_file:
@@ -64,13 +65,13 @@ def parse_data_file(file):
                 linked_list.insert(int(line))
     return linked_list
 
-  
+# Main method
 if __name__ == '__main__':
 
     data_files = ["inorder5k.txt","rev5k.txt","random5k.txt","inorder10k.txt",
                   "rev10k.txt","random10k.txt","inorder100k.txt",
                     "rev100k.txt","random100k.txt"]
-    
+    #loop to record basic operations for each file
     for file in data_files:
         linked_list = parse_data_file("datafiles/" + file)
         result = linked_list.insertion_sort()

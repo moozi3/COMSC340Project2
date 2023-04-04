@@ -52,8 +52,11 @@ def parse_data_file(file):
 # Main Method
 if __name__ == '__main__':
 
+    #list of files to parse
     data_files = ["inorder5k.txt","inorder10k.txt","inorder100k.txt","rev5k.txt","rev10k.txt",
                   "rev100k.txt","random5k.txt","random10k.txt","random100k.txt"]
+    
+    # loop to record the time for merge sorting each file 
     for file in data_files:
         data = parse_data_file("datafiles/" + file)
         start_time = time.time()

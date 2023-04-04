@@ -53,7 +53,7 @@ def merge_sort(arr, basic_ops = None):
 
 #Method for getting and parsing the input data into a list 
 def parse_data_file(file):
-    #a list to store the numbers from the file
+    #list to store the numbers from the file
     data_array = []
     with open(file, "r") as open_file:
         # read each line and add it to the list as an integer

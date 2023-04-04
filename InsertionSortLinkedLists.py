@@ -53,6 +53,7 @@ class LinkedList:
                 prev_node.next = curr_node
             curr_node = next_node
 
+# Method to get the data from a file adn return a linked list
 def parse_data_file(file):
     linked_list = LinkedList()
     with open(file, "r") as open_file:

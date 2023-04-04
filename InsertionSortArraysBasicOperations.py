@@ -1,50 +1,7 @@
 # -*- coding: utf-8 -*-
-"""
-Created on Sun Apr  2 22:36:13 2023
+# @author: moozi
 
-@author: moozi
-"""
-global arr, sortedarray
-
-import time
-
-"""
-this method gathers the file name and parses the values in the file into an
-array
-"""
-def input_filename_to_array():
-    #ask user for file name
-    infilename = input("Enter the name of the file you want to sort (include .txt)")
-    #the next line may need to be edited depending on your directory/computer
-    path = "C:/Users/moozi/Downloads/Fireshot/" + infilename
-    #the next line prints the directory path 
-    #print(path)
-    infile = open(path , "r")
-    
-    #write the file into an array
-    arr = []
-    
-    for line in infile:
-        data = line.strip("\n").split()
-        
-        for i, item in enumerate(data):
-            arr.append(data)
-    print(arr)
-    """            
-    the next two lines can be uncommented to check that the file populated
-    into the array correctly, and that the number of elements in the array
-    match the number of values in the file
-    """    
-    #print(arr)
-    #print(len(arr))
-    return(arr)
-    
-
-"""
-This method implements the insertion sort algorithm using the array we created
-in our method below.
-"""
-
+#Insertion sort method
 def insertion_sort_array(arr):
     """
     vars and their purposes:
@@ -56,29 +13,32 @@ def insertion_sort_array(arr):
         sortedarr[]: the sorted array. This will be appended to after every 
         sorting loop
     """
-    #print(len(arr))
     sortedarray= arr
     
     n = len(arr)
     i = 2
+    #initialize the basic operations counter
     basicops = 0   
     
     for i in range(n):
         x = arr[i]
-        j = i - 1
+        #increment for assignment
         basicops += 1
-        
+        j = i - 1        
         while (j > 0) and (sortedarray[j] > x):
             
             sortedarray[j + 1] = sortedarray[j]
             j -= 1
-            
+            #increment for comparisons in while conditionals
             basicops += 2
                        
         sortedarray[j + 1] = x
+        #increment for assignment
         basicops += 1
     return basicops
-    
+
+
+# This method uses the file name and parses the values in the file into an array  
 def parse_data_file(file):
     #a list to store the numbers from the file
     data_array = []
@@ -93,12 +53,14 @@ def parse_data_file(file):
         #return the lit
     return data_array
   
+#Main method
 if __name__ == '__main__':
 
+    #list of the file to run
     data_files = ["inorder5k.txt","rev5k.txt","random5k.txt","inorder10k.txt",
                   "rev10k.txt","random10k.txt","inorder100k.txt",
                     "rev100k.txt","random100k.txt"]
-    
+    # loop to record the basic operations for sorting each file 
     for file in data_files:
         data = parse_data_file("datafiles/" + file)
         result = insertion_sort_array(data)
